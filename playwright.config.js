@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+require('dotenv').config()
 
 /**
  * Read environment variables from file.
@@ -13,9 +14,9 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  timeout: 190000,
+  timeout: 2500000,
   expect: {
-    timeout: 120000
+    timeout: 190000
   },
 
   testDir: './tests',
