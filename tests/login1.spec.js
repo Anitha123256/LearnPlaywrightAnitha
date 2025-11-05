@@ -1,10 +1,14 @@
 import { test, expect } from '@playwright/test';
+import 'dotenv/config';
 
 test('Verify Login with valid credentials', async ({ page }) => {
 
 await page.goto("https://www.saucedemo.com/v1/")
-await page.locator("//input[@data-test='username']").fill(process.env.APP_USERNAME)
-await page.locator("(//input[@class='form_input'])[2]").fill(process.env.APP_PASSWORD)
+await page.locator("//input[@data-test='username']").fill(process.env.APP_USERNAME || 'standard_user')
+
+
+await page.locator("(//input[@class='form_input'])[2]").fill(process.env.APP_PASSWORD || 'secret_sauce')
+
 await page.locator("//input[@value='LOGIN']").click()
 await expect(page.locator("//div[@id='inventory_filter_container']//div[1]")).toBeVisible()
 
