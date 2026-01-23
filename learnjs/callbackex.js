@@ -36,29 +36,59 @@
 // by default js code is synchronous to make it Asynchronous we are using callback function
 
 // Asynchronous:
-console.log("Anitha")
-setTimeout( function () {
-    console.log("This is Anonymous function")
-}, 5000)
-console.log("Ammu")
+// console.log("Anitha")
+// setTimeout( function () {
+//     console.log("This is Anonymous function")
+// }, 5000)
+// console.log("Ammu")
 //setTimeout(function, time)
 // here we are using anonymous function as a calllback function
 
 
 // closure function: is a callback function but when it is executing it will access the data from higher order function
  
-function add(n1, n2){
-    console.log(n1 + n2)
+// function add(n1, n2){
+//     console.log(n1 + n2)
+// }
+// function displaymessage(n1){
+//     console.log("This is a simple callback " + n1)
+// }
+
+// function calculator(num1, num2, callback, callback2){
+// console.log(num1)
+// console.log(num2)
+// let x = 6
+// callback(x)
+// callback2(num1,num2)
+//  }
+//  calculator(4,7, displaymessage, add)
+
+// callback function
+// function myDisplayer(abc){[
+//     console.log(abc)
+// ]}
+// function myCalculator(num1, num2){
+//     let sum = num1 + num2;
+//     return sum;
+// }
+// let result = myCalculator(5,6);
+// myDisplayer(result);
+// // the problem  with the ex above, is that we have to call two functions to displlay the result.
+// to solve this we can use callback function.
+
+function myDisplayer(abc){
+    console.log(abc)
 }
-function displaymessage(n1){
-    console.log("This is a simple callback " + n1)
+function square(num1){
+    console.log(num1 * num1)
 }
 
-function calculator(num1, num2, callback, callback2){
-console.log(num1)
-console.log(num2)
-let x = 6
-callback(x)
-callback2(num1,num2)
- }
- calculator(4,7, displaymessage, add)
+function myCalculator(num1, num2, callback){
+    let sum = num1 + num2;
+    callback(sum);
+}
+myCalculator(15,5, myDisplayer);
+myCalculator(15,5, square);
+
+// mydisplayer is a callback function here.
+
